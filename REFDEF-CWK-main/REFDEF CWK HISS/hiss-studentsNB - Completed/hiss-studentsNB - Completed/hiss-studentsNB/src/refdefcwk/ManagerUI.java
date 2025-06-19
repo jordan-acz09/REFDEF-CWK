@@ -90,8 +90,13 @@ public class ManagerUI
                     System.out.println("Restore from file");
                     System.out.println("Enter filename");
                     String fname = (myIn.nextLine()).trim();
-                    man1 = man1.restoreManager(fname);
-                    System.out.println(man1.getTeam());
+                    File f = new File(fname);
+                    if (!f.exists()) {
+                        System.out.println("File does not exist: " + fname);
+                    } else {
+                        man1 = man1.restoreManager(fname);
+                        System.out.println(man1.getTeam());
+                    }
                 }
             }
         }
