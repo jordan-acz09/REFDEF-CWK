@@ -158,4 +158,18 @@ public class MyTests {
         String jobsList = pr.getAllJobs();
         assertTrue("All jobs list should mention at least one job.", jobsList.contains("Job#"));
     }
+
+    /**
+     * Test that loading a non-existent save file does not crash or throw.
+     */
+    @Test
+    public void loadingNonExistentSaveFileDoesNotCrash() {
+        String missingFile = "file_that_does_not_exist.sav";
+        try {
+            pr = pr.restoreManager(missingFile);
+            // If no exception is thrown, test passes.
+        } catch (Exception e) {
+            fail("Loading a non-existent save file should not throw an exception. Exception: " + e.getMessage());
+        }
+    }
 }
