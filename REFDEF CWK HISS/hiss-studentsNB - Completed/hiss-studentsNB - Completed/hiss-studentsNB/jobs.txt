@@ -1,0 +1,10 @@
+Design,Kitchen,3,10,200
+Maintenance,Lounge,3,20,150
+Installation,Kitchen,3,30,100
+Design,Bathroom,9,25,250
+Installation,Lounge,7,15,350
+Maintenance,Kitchen,8,35,300
+Maintenance,Bathroom,5,20,400
+Installation,Bathroom,1,5,120
+Design,Kitchen,1,8,175
+Design,Bedroom,2,10,150
