@@ -21,7 +21,9 @@ public class ManagerGUI
     private JButton hireBtn = new JButton("Hire Staff"); //students
     private JButton teamBtn = new JButton("List Team"); //students
     private JButton clearBtn = new JButton("Clear"); //students
-    private JButton showBtn = new JButton("Show State"); //late demo
+    private JButton showBtn = new JButton("Show State"); //already present as "list projects"
+    private JButton doJobBtn = new JButton("Do a Job"); // ADDED
+    private JButton rejoinBtn = new JButton("Staff Rejoin from Leave"); // ADDED
 
     private JPanel eastPanel = new JPanel();
 
@@ -48,12 +50,13 @@ public class ManagerGUI
         myFrame.add(listing,BorderLayout.CENTER);
         myFrame.add(eastPanel, BorderLayout.EAST);
         // set panel layout and add components
-        eastPanel.setLayout(new GridLayout(6,1));
+        eastPanel.setLayout(new GridLayout(8,1)); // expanded for new buttons
         eastPanel.add(listBtn);
         eastPanel.add(quitBtn);
-
         eastPanel.add(hireBtn); //students task 2.6
         eastPanel.add(teamBtn); //students
+        eastPanel.add(doJobBtn); // ADDED
+        eastPanel.add(rejoinBtn); // ADDED
         eastPanel.add(clearBtn);// students
         eastPanel.add(showBtn); //late demo
 
@@ -62,14 +65,18 @@ public class ManagerGUI
         hireBtn.addActionListener(new HireHandler()); //students
         teamBtn.addActionListener(new TeamHandler()); //students
         clearBtn.addActionListener(new ClearHandler());//students
-
         showBtn.addActionListener(new StateHandler()); //late demo
+
+        doJobBtn.addActionListener(new DoJobHandler()); // ADDED
+        rejoinBtn.addActionListener(new RejoinHandler()); // ADDED
         
         listBtn.setVisible(true);
         teamBtn.setVisible(true);
         hireBtn.setVisible(true);
         clearBtn.setVisible(true);
         quitBtn.setVisible(true);
+        doJobBtn.setVisible(true); // ADDED
+        rejoinBtn.setVisible(true); // ADDED
         // building is done - arrange the components and show        
         myFrame.pack();
         myFrame.setVisible(true);
@@ -108,7 +115,10 @@ public class ManagerGUI
         JMenuItem stf = new JMenuItem("Get Staff");
         stf.addActionListener(new StfHandler());
         fileMenu.add(stf);
-            
+
+        JMenuItem rejoinMenuItem = new JMenuItem("Staff Rejoin from Leave"); // ADDED
+        rejoinMenuItem.addActionListener(new RejoinHandler());
+        fileMenu.add(rejoinMenuItem);
     }
 
 // Menu item handlers
@@ -131,22 +141,31 @@ public class ManagerGUI
         }
     }
     
-    private class DoJobHandler implements ActionListener //student task 2.6
+    private class DoJobHandler implements ActionListener
     {
         public void actionPerformed(ActionEvent e) 
         { 
-            String result = "";
             String inputValue = JOptionPane.showInputDialog("Job no ?: ");
-            int jbNo =  Integer.parseInt(inputValue);            
-            result = mg.doJob(jbNo);
+            try {
+                int jbNo =  Integer.parseInt(inputValue);            
+                String result = mg.doJob(jbNo);
+                JOptionPane.showMessageDialog(myFrame,result);
+            } catch (NumberFormatException ex) {
+                JOptionPane.showMessageDialog(myFrame,"Invalid job number.");
+            }
+        }
+    }
+
+    private class RejoinHandler implements ActionListener // ADDED
+    {
+        public void actionPerformed(ActionEvent e)
+        { 
+            String inputValue = JOptionPane.showInputDialog("Staff name to rejoin?: ");
+            String result = mg.staffRejoinTeam(inputValue);
             JOptionPane.showMessageDialog(myFrame,result);
         }
     }
     
-
-    
-
-
 // Button handlers
     
     private class ListHandler implements ActionListener
@@ -213,4 +232,3 @@ public class ManagerGUI
    }
     
 }
-   
