@@ -11,7 +11,7 @@ import java.io.*;
  * @author - Jordan Anyanwu 21037141
  * @author - if working as a pair, add your partner's name & SRN here
  *           (or leave blank, if working individually)
- * @version - add the submission date here
+ * @version - 23/06/25
  */
 public class Manager implements HISS,Serializable
 {
