@@ -6,7 +6,8 @@ package refdefcwk;
 import java.io.Serializable;
 /**
  *
- * @author Ja22aaj
+ * @author Jordan A
+ * version - 20/06/25
  */
 public class Job implements Serializable {
     private int jobNumber;
