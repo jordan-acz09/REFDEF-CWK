@@ -6,7 +6,8 @@ package refdefcwk;
 
 /**
  *
- * @author Ja22aaj
+ * @author Jordan A
+ * Version - 20/06/25
  */
 public class Consultant extends Staff {
     private boolean corgiTrained;
