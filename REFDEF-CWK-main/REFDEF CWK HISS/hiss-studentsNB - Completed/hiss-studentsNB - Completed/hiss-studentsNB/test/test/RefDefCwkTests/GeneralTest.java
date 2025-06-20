@@ -94,7 +94,7 @@ public class GeneralTest
     public void isInJobRange() {
         // Checks that jobs have been loaded and can retrieve a job
         boolean actual = true;
-        for (int x=100; x<=106; x++){
+        for (int x=1000; x<=1006; x++){
             actual = actual && pr.isJob(x);
         }
         assertTrue(actual);
