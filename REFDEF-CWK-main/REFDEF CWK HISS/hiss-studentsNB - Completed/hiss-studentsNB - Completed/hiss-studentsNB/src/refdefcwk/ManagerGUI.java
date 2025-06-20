@@ -7,8 +7,8 @@ import java.util.*;
 /**
  * Provide a GUI interface for the simulation
  * 
- * @author A.A.Marczyk
- * @version 20/05/25
+ * @author A.A.Marczyk, Jordan A
+ * @version 20/06/25
  */
 public class ManagerGUI 
 {
