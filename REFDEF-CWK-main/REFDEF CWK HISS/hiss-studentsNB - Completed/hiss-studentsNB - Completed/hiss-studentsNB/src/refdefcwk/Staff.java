@@ -6,7 +6,8 @@ package refdefcwk;
 import java.io.Serializable;
 /**
  *
- * @author Ja22aaj
+ * @author Jordan A
+ * version - 20/06/2025
  */
 public abstract class Staff implements Serializable {
     protected String name;
