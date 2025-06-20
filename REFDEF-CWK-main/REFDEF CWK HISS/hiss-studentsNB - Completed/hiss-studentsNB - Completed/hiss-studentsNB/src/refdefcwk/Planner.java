@@ -6,7 +6,8 @@ package refdefcwk;
 
 /**
  *
- * @author Ja22aaj
+ * @author Jordan A
+ *version - 20/06/25
  */
 public class Planner extends Staff {
     private String make;
